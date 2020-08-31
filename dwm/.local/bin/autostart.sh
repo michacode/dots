@@ -3,7 +3,7 @@ while true; do
     ~/.config/dwm/status.sh
    sleep 60 
 done &
-
+mkfifo bat
 while true; do
     ~/.config/dwm/blocks/bat.sh
     sleep 120

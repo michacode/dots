@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-bat=$( ~/.config/dwm/blocks/bat.sh )
+#bat=$( cat ~/.config/dwm/blocks/bat.txt )
+bat=$( cat < bat )
 tid=$( ~/.config/dwm/blocks/tid.sh )
 #lav lys knap
 lys=$( sh ~/.config/dwm/blocks/lys.sh )
