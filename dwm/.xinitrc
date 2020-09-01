@@ -1,1 +1,3 @@
-/home/micha/.xinitrc
+xrdb -merge ~/.Xresources
+~/.local/bin/autostart.sh
+exec dwm

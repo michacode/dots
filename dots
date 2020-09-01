@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+cp -rf ~/.bashrc ~/dots/
+cp -rf ~/.config/dwm/blocks ~/dots/dwm/.config/dwm/
+cp -rf ~/.config/dwm/status.sh ~/dots/dwm/.config/dwm/
+cp -rf ~/dwm/* ~/dots/dwm/dwm_build/
+cp -rf ~/.local/bin/autostart.sh ~/dots/dwm/.local/bin/
+cp -rf ~/.vimrc ~/dots/
+cp -rf ~/.xinitrc ~/dots/dwm/
+cp -rf ~/.Xresources ~/dots/
+exit 0
