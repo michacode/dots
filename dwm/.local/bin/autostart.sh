@@ -6,7 +6,7 @@ while true; do
 done &
 while true; do
     ~/.config/dwm/status.sh
-   sleep 60 
+   sleep 30 
 done &
 
 # Autostart section
