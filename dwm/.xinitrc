@@ -1,3 +1,3 @@
 xrdb -merge ~/.Xresources 
-~/.local/bin/autostart.sh
+~/.local/bin/autostart.sh 
 exec dwm
