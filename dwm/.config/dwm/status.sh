@@ -6,4 +6,4 @@ lys=$( ~/.config/dwm/blocks/lys.sh )
 bat=$( cat < bat )
 tid=$( ~/.config/dwm/blocks/tid.sh )
 
-xsetroot -name " $crypto  $vol  lys $lys%  bat. $bat  $tid"
+xsetroot -name " $crypto  |  $vol  |  lys $lys%  |  bat. $bat  |  $tid"
