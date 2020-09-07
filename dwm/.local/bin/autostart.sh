@@ -19,5 +19,4 @@ done &
 # Autostart desktop
 picom -b &
 nitrogen --restore &
-st &
 setxkbmap dk &
