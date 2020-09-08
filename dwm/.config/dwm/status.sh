@@ -7,4 +7,4 @@ bat=$( cat < bat )
 tid=$( ~/.config/dwm/blocks/tid.sh )
 net=$(  ~/.config/dwm/blocks/net.sh )
 
-xsetroot -name " $crypto  |  lys $lys%  |  $vol  |  bat. $bat  |  net $net   |  $tid "
+xsetroot -name " $crypto  |  LYS: $lys%  |  $vol  |  BAT.: $bat  |  NET: $net   |  $tid "
