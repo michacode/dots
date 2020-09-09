@@ -2,19 +2,12 @@
 
 # Statusbar
 
-mkfifo bat &
-
 ~/.config/dwm/blocks/crypto.sh
 
-while true; do
-    ~/.config/dwm/blocks/bat.sh
-    sleep 120
-done &
+#mkfifo bat &
+~/.config/dwm/blocks/bat.sh
 
-while true; do
-    ~/.config/dwm/status.sh
-   sleep 30 
-done &
+~/.config/dwm/status.sh
 
 # Autostart desktop
 picom -b &
