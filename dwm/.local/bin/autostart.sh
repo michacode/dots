@@ -4,8 +4,12 @@
   # Opdatér info, der ikke startes fra status skriptet.
 ~/.config/dwm/blocks/crypto.sh
 ~/.config/dwm/blocks/bat.sh
-  # Start status skriptet.
-~/.config/dwm/status.sh
+
+# Start status skriptet.
+while true; do
+  ~/.config/dwm/status.sh
+  sleep 30
+done &
 
 # Autostart skrivebords applikationer.
 picom -b &
