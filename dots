@@ -7,7 +7,7 @@ cp -rf ~/.bashrc ~/dots/
 echo 'dwm konf.'
 cp -rf ~/.config/dwm/blocks ~/dots/dwm/.config/dwm/
 cp -rf ~/.config/dwm/status.sh ~/dots/dwm/.config/dwm/
-cp -rf ~/dwm ~/dots/dwm/dwm_build
+cp -rf ~/dwm ~/dots/dwm/dwm_source
 echo "autostart.sh"
 cp -rf ~/.local/bin/autostart.sh ~/dots/dwm/.local/bin/
 echo "vim konf."
