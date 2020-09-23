@@ -8,4 +8,4 @@ bat=$( cat </tmp/bat  )
 tid=$( ~/.config/dwm/blocks/tid.sh )
 net=$(  ~/.config/dwm/blocks/net.sh )
 
-xsetroot -name " $crypto_btc  ·  $crypto_eth  |  LYS: $lys%  |  $vol  |  BAT.: $bat  |  NET: $net   |  $tid "
+xsetroot -name " $crypto_btc  ·  $crypto_eth  |  LYS: $lys%  |  $vol  |  $bat  |  NET: $net   |  $tid "
