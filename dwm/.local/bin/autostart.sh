@@ -2,6 +2,7 @@
 
 # Statusbar
   # Opdatér info, der ikke startes fra status skriptet.
+~/.config/dwm/blocks/net.sh
 ~/.config/dwm/blocks/crypto.sh
 ~/.config/dwm/blocks/bat.sh
 
