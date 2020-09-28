@@ -5,8 +5,9 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-alias atom='/usr/local/bin/atomicwallet.AppImage'
-alias bw='bitwarden-desktop'
+alias atom='/usr/local/bin/atomicwallet.AppImage &>/dev/null'
+alias bw='bitwarden-desktop &>/dev/null'
+alias ff='firefox &>/dev/null'
 
 PS1='\[\e[1;36m\]\A\[\e[m\] \[\e[1;34;107m\] \u\[\e[m\]\[\e[1;30;107m\]@\h \[\e[m\]\[\e[0;33m\] [\W]\$\[\e[m\] '
 export HISTSIZE=500000
