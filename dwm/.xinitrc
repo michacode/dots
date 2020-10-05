@@ -1,5 +1,9 @@
+xset +fp /usr/share/fonts/local
+xset fp rehash
+
 xrdb -merge ~/.Xresources 
 ~/.local/bin/autostart.sh 
+
 exec dwm
 
 kill 19861 &>/dev/null # Kill autostart.sh
