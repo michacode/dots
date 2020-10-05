@@ -1,27 +1,27 @@
 #!/bin/sh
 
-
 git_commit(){
   echo
-  git init ~/dots
-  git add .
+  git init ~/dots &>/dev/null && [[ "$?" == "0" ]] && echo "> Git init lykkedes"
+  git add . && [[ "$?" == "0" ]] && echo "> Git tilføj lykkedes"
+  echo
   echo "Angiv ændringer."
   read -p "Titel: " titel
   read -p "Tekst: " txt
-  git commit -m "$titel" -m "$txt"
+  git commit -m "$titel" -m "$txt" &>/dev/null && echo "Skrev: $titel"
   git push master
 }
 
-
-echo "michacode@github:"
+echo
+echo "  michacode@github"
 echo
 echo "@@@@@@@@@@@@@@@@@@@@"
 echo "--------------------"
-echo " DDD   OO DDDDD ZZ "
-echo " D  D O  O  D  Z  Z"
-echo " D  D O  O  D   Zz "
-echo " D  D D  D  D     Z"
-echo " DDD   OO   D  ZzzZ"
+echo " DDD   OO DDDDD ZZ  "
+echo " D  D O  O  D  Z  Z "
+echo " D  D O  O  D   Zz  "
+echo " D  D D  D  D     Z "
+echo " DDD   OO   D  ZzzZ "
 echo "--------------------"
 echo "@@@@@@@@@@@@@@@@@@@@"
 echo
