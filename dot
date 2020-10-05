@@ -25,7 +25,7 @@ git_commit(){
   read -p "Titel: " titel
   read -p "Tekst: " txt
   git commit -m "$titel" -m "$txt" &>/dev/null && echo "> Git commit, med titlen \"$titel\" lykkedes"
-  git push master && [[ "$?" == "0" ]] && echo "> Git push lykkedes"
+  git push master &>/dev/null && [[ "$?" == "0" ]] && echo "> Git push lykkedes"
   
   exit 0
 
