@@ -21,7 +21,8 @@ git_commit(){
   git init ~/dots &>/dev/null && [[ "$?" == "0" ]] && echo "> Git startet i dots-mappen"
   git add . && [[ "$?" == "0" ]] && echo "> Filerne blev tilføjet git master"
   echo
-  echo "[ANGIV ÆNDRINGER]"
+  echo " [ANGIV ÆNDRINGER]"
+  echo
   read -p "Titel: " titel
   read -p "Tekst: " txt
   echo
@@ -37,12 +38,12 @@ echo
 echo
 echo " [HJEMMEMAPPENS KONFIGURATIONSFILER]"
 echo
-echo " [bash konfigurationer]"
+echo "  [bash konfigurationer]"
 echo
 [[ -f ~/.bashrc ]] && cp -rf ~/.bashrc ~/dots/ && [[ "$?" == "0" ]] && echo "-> .bashrc kopieret" || echo " X .bashrc ikke fundet"
 [[ -f ~/.bash_profile ]] && cp -rf ~/.bash_profile ~/dots/ && [[ "$?" == "0" ]] && echo "-> .bash_profile kopieret" || echo " X .bash_profile ikke fundet"
 echo
-echo ' [dwm konfigurationer]'
+echo '  [dwm konfigurationer]'
 echo
 [[ -d ~/.config/dwm/blocks ]] && cp -rf ~/.config/dwm/blocks ~/dots/dwm/.config/dwm/ && [[ "$?" == "0" ]] && echo "-> dwm-blokke kopieret" || echo " X dwm-blokke ikke fundet"
 [[ -f ~/.config/dwm/status.sh ]] && cp -rf ~/.config/dwm/status.sh ~/dots/dwm/.config/dwm/ && [[ "$?" == "0" ]] && echo "-> dwm statusbar kopieret" || echo " X dwm-statusbar ikke fundet"
@@ -50,15 +51,15 @@ echo
 [[ -d ~/dots/dwm/dwm_source ]] && [[ -d ~/dwm ]] && cp -rf ~/dwm ~/dots/dwm/dwm_source && [[ "$?" == "0" ]] && echo "-> dwm-kildemappen kopieret" || echo " X dwm-kildemappen ikke fundet, opretter mappen..." && mkdir ~/dots/dwm/dwm_source && cp -rf ~/dwm ~/dots/dwm/dwm_source && [[ "$?" == "0" ]] && echo "-> dwm-kildemappen kopieret" || echo " X Noget gik galt"
 
 echo
-echo " [autostart]"
+echo "  [autostart]"
 echo
 [[ -f ~/.local/bin/autostart.sh ]] && cp -rf ~/.local/bin/autostart.sh ~/dots/dwm/.local/bin/ && [[ "$?" == "0" ]] && echo "-> autostart.sh kopieret" || echo " X autostart.sh kopieret"
 echo
-echo " [vim konfigurationer]"
+echo "  [vim konfigurationer]"
 echo
 [[ -f ~/.vimrc ]] && cp -rf ~/.vimrc ~/dots/ && [[ "$?" == "0" ]] && echo "-> .vimrc kopieret" || echo " X .vimrc ikke fundet"
 echo
-echo " [xorg konfiguration]"
+echo "  [xorg konfiguration]"
 echo
 [[ -f ~/.xinitrc ]] && cp -rf ~/.xinitrc ~/dots/dwm/ && [[ "$?" == "0" ]] && echo "-> .xinitrc kopieret" || echo " X .xinitrc ikke fundet"
 [[ -f ~/.Xresources ]] && cp -rf ~/.Xresources ~/dots/ && [[ "$?" == "0" ]] && echo "-> .Xresources kopieret" || echo " X .Xresources ikke fundet"
@@ -66,11 +67,11 @@ echo
 echo
 echo " [HJEMMEBRYG]"
 echo
-echo " [netto-skript]"
+echo "  [netto-skript]"
 echo
 [[ -f /usr/bin/netto ]] && cp -rf /usr/bin/netto ~/dots/hjemmebryg/netto/ && [[ "$?" == "0" ]] && echo "-> netto-skript kopieret" || echo " X netto-skript ikke fundet"
 echo
-echo " [bat-skript]"
+echo "  [bat-skript]"
 echo
 [[ -f /usr/bin/bat ]] && cp -rf /usr/bin/bat ~/dots/hjemmebryg/div/ && [[ "$?" == "0" ]] && echo "-> bat-skript kopieret" || echo " X bat-skript ikke fundet" 
 gitorquit
