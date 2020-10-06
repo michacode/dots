@@ -27,7 +27,7 @@ git_commit(){
   echo
   git commit -m "$titel" -m "$txt" &>/dev/null && echo "> Git commit, med titlen \"$titel\" lykkedes"
   echo
-  git push master &>/dev/null & echo "Overfører, vent venligst, som man siger..." && [[ "$?" == "0" ]] && echo "> Git push lykkedes"
+  git push master &>/dev/null && [[ "$?" == "0" ]] && echo "> Git push lykkedes"
   echo
   exit 0
 }
