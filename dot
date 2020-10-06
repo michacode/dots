@@ -89,6 +89,6 @@ echo " D  D D  D  D     Z "
 echo " DDD   OO   D  ZzzZ "
 echo "--------------------"
 echo "@@@@@@@@@@@@@@@@@@@@"
-echo
+
 [[ ! -d ~/dots ]] && echo "[INGEN DOT-MAPPE FUNDET, AFSLUTTER SKRIPT...]" && exit 0 || [[ -d ~/dots ]] && kopi || echo "[NOGET GIK GALT, AFSLUTTER]" && exit 0
 exit 0
