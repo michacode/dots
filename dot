@@ -47,8 +47,8 @@ echo '  [dwm konfigurationer]'
 echo
 [[ -d ~/.config/dwm/blocks ]] && cp -rf ~/.config/dwm/blocks ~/dots/dwm/.config/dwm/ && [[ "$?" == "0" ]] && echo "-> dwm-blokke kopieret" || echo " X dwm-blokke ikke fundet"
 [[ -f ~/.config/dwm/status.sh ]] && cp -rf ~/.config/dwm/status.sh ~/dots/dwm/.config/dwm/ && [[ "$?" == "0" ]] && echo "-> dwm statusbar kopieret" || echo " X dwm-statusbar ikke fundet"
-[[ -d ~/dots/dwm/dwm_source ]] && rm -rf ~/dots/dwm/dwm_source && [[ "$?" == "0" ]] && echo "-> slettede mappen dwm/dwm_source" || echo " X dwm-kildemappen kan ikke slettes, hvis denne mangler, opretts den i næste trin"
-[[ -d ~/dots/dwm/dwm_source ]] && [[ -d ~/dwm ]] && cp -rf ~/dwm ~/dots/dwm/dwm_source && [[ "$?" == "0" ]] && echo "-> dwm-kildemappen kopieret" || echo " X dwm-kildemappen ikke fundet, opretter mappen..." && mkdir ~/dots/dwm/dwm_source && cp -rf ~/dwm ~/dots/dwm/dwm_source && [[ "$?" == "0" ]] && echo "-> dwm-kildemappen kopieret" || echo " X Noget gik galt"
+[[ -d ~/dots/dwm/dwm_source ]] && rm -rf ~/dots/dwm/dwm_source && [[ "$?" == "0" ]] && echo "-> slettede dwm-kildemappen" || echo " X dwm-kildemappen kan ikke slettes, hvis denne mangler, opretts den i næste trin"
+[[ -d ~/dots/dwm/dwm_source ]] && [[ -d ~/dwm ]] && cp -rf ~/dwm ~/dots/dwm/dwm_source && [[ "$?" == "0" ]] && echo "-> dwm-kildemappen kopieret" || echo "-> dwm-kildemappen ikke fundet, opretter mappen..." && mkdir ~/dots/dwm/dwm_source && cp -rf ~/dwm ~/dots/dwm/dwm_source && [[ "$?" == "0" ]] && echo "-> dwm-kildemappen kopieret" || echo " X Noget gik galt"
 
 echo
 echo "  [autostart]"
