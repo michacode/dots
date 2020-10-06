@@ -18,8 +18,8 @@ done
 
 git_commit(){
   echo
-  git init ~/dots &>/dev/null && [[ "$?" == "0" ]] && echo "> Git init lykkedes"
-  git add . && [[ "$?" == "0" ]] && echo "> Git tilføj lykkedes"
+  git init ~/dots &>/dev/null && [[ "$?" == "0" ]] && echo "> Git startet i dots-mappen"
+  git add . && [[ "$?" == "0" ]] && echo "> Filerne blev tilføjet git master"
   echo
   echo "[ANGIV ÆNDRINGER]"
   read -p "Titel: " titel
@@ -27,15 +27,15 @@ git_commit(){
   echo
   git commit -m "$titel" -m "$txt" &>/dev/null && echo "> Git commit, med titlen \"$titel\" lykkedes"
   echo
-  git push master &>/dev/null && [[ "$?" == "0" ]] && echo "> Git push lykkedes"
+  git push master &>/dev/null && [[ "$?" == "0" ]] && echo "> Git overførsel lykkedes"
   echo
   exit 0
 }
 
 kopi(){
 echo
-echo " [HJEMMEMAPPENS KONFIGURATIONSFILER]"
 echo
+echo " [HJEMMEMAPPENS KONFIGURATIONSFILER]"
 echo
 echo " [bash konfigurationer]"
 echo
@@ -46,8 +46,9 @@ echo ' [dwm konfigurationer]'
 echo
 [[ -d ~/.config/dwm/blocks ]] && cp -rf ~/.config/dwm/blocks ~/dots/dwm/.config/dwm/ && [[ "$?" == "0" ]] && echo "-> dwm-blokke kopieret" || echo " X dwm-blokke ikke fundet"
 [[ -f ~/.config/dwm/status.sh ]] && cp -rf ~/.config/dwm/status.sh ~/dots/dwm/.config/dwm/ && [[ "$?" == "0" ]] && echo "-> dwm statusbar kopieret" || echo " X dwm-statusbar ikke fundet"
-[[ -d ~/dots/dwm/dwm_source ]] && rm -rf ~/dots/dwm/dwm_source && [[ "$?" == "0" ]] && echo "-> slettede mappen dwm/dwm_source" || echo " X mappen dwm/dwm_source ikke fundet"
-[[ -d ~/dots/dwm/dwm_source ]] && cp -rf ~/dwm ~/dots/dwm/dwm_source && [[ "$?" == "0" ]] && echo "-> mappen dwm-kildemappen kopieret" || :
+[[ -d ~/dots/dwm/dwm_source ]] && rm -rf ~/dots/dwm/dwm_source && [[ "$?" == "0" ]] && echo "-> slettede mappen dwm/dwm_source" || echo " X mappen dwm/dwm_source ikke fundet eller kan ikke slettes"
+[[ -d ~/dots/dwm/dwm_source ]] && [[ -d ~/dwm ]] && cp -rf ~/dwm ~/dots/dwm/dwm_source && [[ "$?" == "0" ]] && echo "-> dwm-kildemappen kopieret" || echo " X dwm-kildemappen ikke fundet eller kan ikke kopieres"
+
 echo
 echo " [autostart]"
 echo
@@ -89,5 +90,5 @@ echo " DDD   OO   D  ZzzZ "
 echo "--------------------"
 echo "@@@@@@@@@@@@@@@@@@@@"
 echo
-[[ ! -d ~/dots ]] && echo "[INGEN DOT-MAPPE FUNDET, AFSLUTTER SKRIPT...]" && exit 0 || [[ -d ~/dots ]] && echo "[DOT MAPPE FUNDET, STARTER KOPIERING...]" ; kopi || echo "[NOGET GIK GALT, AFSLUTTER]" && exit 0
+[[ ! -d ~/dots ]] && echo "[INGEN DOT-MAPPE FUNDET, AFSLUTTER SKRIPT...]" && exit 0 || [[ -d ~/dots ]] && kopi || echo "[NOGET GIK GALT, AFSLUTTER]" && exit 0
 exit 0
