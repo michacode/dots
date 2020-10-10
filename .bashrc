@@ -4,8 +4,12 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+opdater(){
+[[ "$1" == "atom" ]] && sudo curl -# -o /usr/local/bin/atomicwallet.AppImage https://get.atomicwallet.io/download/atomicwallet.AppImage && chmod a+x /usr/local/bin/atomicwallet.AppImage
+}
 alias ls='ls --color=auto'
 alias atom='/usr/local/bin/atomicwallet.AppImage &>/dev/null'
+alias opdater=opdater
 alias bw='bitwarden-desktop &>/dev/null'
 alias ff='firefox &>/dev/null'
 
