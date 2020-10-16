@@ -24,7 +24,7 @@ echo "Atomic Wallet chacksum: $atom_checksum (eksisterende)"
 
 [[ ! -f ~/.config/atomic_wallet/atomic_wallet_checksum ]] && echo "Ingen checksum-fil fundet. Geninstallerer Atomic Wallet..." && opdater_atom
 [[ "$ny_atom_checksum" != "$atom_checksum" ]] && echo "Atomic Wallet bør opdateres! Starter opdatering..." && opdater_atom 
-[[ "$ny_atom_checksum" == "$atom_checksum" ]] && echo $atom_checksum && echo "Den nyeste version af Atomic Wallet findes allerede i systemet!" 
+[[ "$ny_atom_checksum" == "$atom_checksum" ]] && echo "Den nyeste version af Atomic Wallet findes allerede i systemet!" 
 
 }
 
