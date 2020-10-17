@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+yay -Sc
+sudo paccache -r
+echo
+echo "Renser med Pacman (forældreløse):"
+sudo pacman -Rns $(pacman -Qtdq)
+echo
+echo "Renser cache i /home mappen:"
+rm -rf ~/.cache/*
+echo
+echo "Renser systemd logs:"
+sudo journalctl --vacuum-size=50M
