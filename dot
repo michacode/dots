@@ -19,15 +19,15 @@ done
 git_commit(){
   echo
   [[ "$PWD" != ~/dots ]] && cd ~/dots
-  git init ~/dots &>/dev/null && [[ "$?" == "0" ]] && echo "> Git startet i dots-mappen"
-  git add . && [[ "$?" == "0" ]] && echo "> Filerne blev tilføjet git master"
+  git init ~/dots &>/dev/null && [[ "$?" == "0" ]] && echo "> Git init"
+  git add . && [[ "$?" == "0" ]] && echo "> Git add"
   echo
   echo " [ANGIV ÆNDRINGER]"
   echo
   read -p "Titel: " titel
   read -p "Tekst: " txt
   echo
-  git commit -m "$titel" -m "$txt" &>/dev/null && echo "> Git commit, med titlen \"$titel\" lykkedes"
+  git commit -m "$titel" -m "$txt" &>/dev/null && echo "> Git commit, med titlen \"$titel\""
   echo
   git push master && [[ "$?" == "0" ]] && echo "> Dot skript slut."
   echo
@@ -43,6 +43,7 @@ echo "  [bash konfigurationer]"
 echo
 [[ -f ~/.bashrc ]] && cp -rf ~/.bashrc ~/dots/ && [[ "$?" == "0" ]] && echo "-> .bashrc kopieret" || echo " X .bashrc ikke fundet"
 [[ -f ~/.bash_profile ]] && cp -rf ~/.bash_profile ~/dots/ && [[ "$?" == "0" ]] && echo "-> .bash_profile kopieret" || echo " X .bash_profile ikke fundet"
+[[ -f ~/.alias ]] && cp -rf ~/.alias ~/dots/ && [[ "$?" == "0" ]] && echo "-> .alias kopieret" || echo " X .alias ikke fundet"
 echo
 echo '  [dwm konfigurationer]'
 echo
@@ -75,6 +76,10 @@ echo
 echo "  [bat-skript]"
 echo
 [[ -f /usr/bin/bat ]] && cp -rf /usr/bin/bat ~/dots/hjemmebryg/div/ && [[ "$?" == "0" ]] && echo "-> bat-skript kopieret" || echo " X bat-skript ikke fundet" 
+echo
+echo "  [rens-skript]"
+echo
+[[ -f /usr/bin/rens ]] && cp -rf /usr/bin/rens ~/dots/hjemmebryg/div/ && [[ "$?" == "0" ]] && echo "-> rens-skript kopieret" || echo " X rens-skript ikke fundet"
 gitorquit
 exit 0
 }
