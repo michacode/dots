@@ -1,5 +1,5 @@
 #
 # ~/.bash_profile
 #
-[[ -f ~/.alias ]] && . ~/.alias
+#[[ -f ~/.alias ]] && . ~/.alias
 [[ -f ~/.bashrc ]] && . ~/.bashrc
