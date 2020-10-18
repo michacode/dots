@@ -29,11 +29,12 @@ opdater(){
 
 # Opdater hele systemet
 [[ -z "$1" ]] && echo "Opdaterering af systemet startes ..." &&  yay -Syu && echo "Opdaterer Atomic Wallet ..." && tjek_manuelle_installationer
+[[ "$@" == *"--"* ]] && echo "Opdaterering af systemet startes ..." &&  yay -Syu $@ && echo "Opdaterer Atomic Wallet ..." && tjek_manuelle_installationer
 
 }
 
 alias atom='/usr/local/bin/atomicwallet.AppImage &>/dev/null'
-alias opdater=opdater
+alias opdater=opdater $@
 alias bw='bitwarden-desktop &>/dev/null'
 alias ff='firefox &>/dev/null'
 
