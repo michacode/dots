@@ -29,7 +29,7 @@ git_commit(){
   echo
   git commit -m "$titel" -m "$txt" &>/dev/null && echo "> Git commit, med titlen \"$titel\""
   echo
-  git push master && [[ "$?" == "0" ]] && echo "> Dot skript slut."
+  git push master && [[ "$?" == "0" ]] && echo && echo "> Dot skript slut."
   echo
   exit 0
 }
