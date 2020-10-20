@@ -27,8 +27,7 @@ opdater(){
 [[ "$1" == "atom" ]] && tjek_manuelle_installationer
 
 # Opdater hele systemet
-[[ -z "$1" ]] && echo "Opdaterering af systemet startes ..." &&  yay -Syu 
-echo && echo "Opdaterer Atomic Wallet ..." && echo && tjek_manuelle_installationer
+[[ -z "$1" ]] && echo "Opdaterering af systemet startes ..." &&  yay -Syu && echo && echo "Opdaterer Atomic Wallet ..." && echo && tjek_manuelle_installationer
 
 [[ "$@" == *"--"* ]] && echo "Opdaterering af systemet startes ..." &&  yay -Syu $@ && echo && echo "Opdaterer Atomic Wallet ..." && tjek_manuelle_installationer
 
@@ -39,7 +38,6 @@ alias opdater=opdater $@
 alias opd=opdater $@
 alias bw='bitwarden-desktop &>/dev/null'
 alias bb='brave &>/dev/null'
-
 export atom
 export opdater
 export opd
