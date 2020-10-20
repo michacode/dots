@@ -4,7 +4,9 @@ source ~/.alias
 
 # The following lines were added by compinstall
 
-zstyle ':completion:*' completer _complete _ignored
+zstyle ':cpmpletion:*' COMPLETE_ALIASES
+zstyle ':cpmpletion:*' gain-privileges 1
+zstyle ':cpmpletion:*' completer _complete _ignored
 zstyle ':completion:*' completions 0
 zstyle ':completion:*' glob 1
 zstyle ':completion:*' insert-unambiguous false
@@ -14,8 +16,10 @@ zstyle ':completion:*' original true
 zstyle ':completion:*' substitute 0
 zstyle :compinstall filename '/home/micha/.zshrc'
 
-autoload -Uz compinit
+autoload -Uz compinit promptinit
 compinit
+promptinit
+prompt adam1
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
