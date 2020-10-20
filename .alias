@@ -33,11 +33,18 @@ opdater(){
 
 }
 
+win(){
+[[ "$1" == "docs" ]] && ranger /mnt/Windows/Users/Micha/Documents
+[[ "$1" == "down" ]] && ranger /mnt/Windows/Users/Micha/Downloads
+[[ "$1" == "" ]] && ranger /mnt/Windows/Users/Micha
+}
+
 alias atom='/usr/local/bin/atomicwallet.AppImage &>/dev/null'
 alias opdater=opdater $@
 alias opd=opdater $@
 alias bw='bitwarden-desktop &>/dev/null'
 alias bb='brave &>/dev/null'
+alias win=win $@
 export atom
 export opdater
 export opd

@@ -37,17 +37,21 @@ git_commit(){
 kopi(){
 echo
 echo
-echo " [HJEMMEMAPPENS KONFIGURATIONSFILER]"
+echo " [SYSTEMMAPPENS KONFIGURATIONSFILER]"
+
+[[ -d ~/dots/zsh-konfiguration ]] && rm -rf ~/dots/zsh
+[[ ! -d ~/dots/zsh-konfiguration ]] && mkdir ~/dots/zsh-konfiguration && mkdir ~/dots/zsh-konfiguration/etc && mkdir ~/dots/zsh-konfiguration/etc/zsh
 echo
 echo "  [zsh-konfigurationer]"
 echo
-[[ -d ~/dots/zsh-konfiguration ]] && rm -rf ~/dots/zsh
-[[ ! -d ~/dots/zsh-konfiguration ]] && mkdir ~/dots/zsh-konfiguration && mkdir ~/dots/zsh-konfiguration/etc && mkdir ~/dots/zsh-konfiguration/etc/zsh
 [[ -f /etc/zsh/zshenv ]] && sudo cp /etc/zsh/zshenv ~/dots/zsh-konfiguration/etc/zsh/
 [[ -f /etc/zsh/zprofile ]] && sudo cp /etc/zsh/zprofile ~/dots/zsh-konfiguration/etc/zsh/
 [[ -f /etc/zsh/zshrc ]] && sudo cp /etc/zsh/zshrc ~/dots/zsh-konfiguration/etc/zsh/
 [[ -f /etc/zsh/zlogin ]] && sudo cp /etc/zsh/zlogin ~/dots/zsh-konfiguration/etc/zsh/
 [[ -f /etc/zsh/zlogout ]] && sudo cp /etc/zsh/zlogout ~/dots/zsh-konfiguration/etc/zsh/
+echo
+echo " [HJEMMEMAPPENS KONFIGURATIONSFILER]"
+echo
 [[ -f ~/.zshenv ]] && sudo cp ~/.zshenv ~/dots/
 [[ -f ~/.zshrc ]] && sudo cp ~/.zshrc ~/dots/
 echo

@@ -1,11 +1,10 @@
 source ~/.alias
 
-#[[ -f ~/.alias ]] && . ~/.alias
-
 # The following lines were added by compinstall
 
 zstyle ':cpmpletion:*' COMPLETE_ALIASES
 zstyle ':cpmpletion:*' gain-privileges 1
+zstyle ':cpmpletion:*' menu select
 zstyle ':cpmpletion:*' completer _complete _ignored
 zstyle ':completion:*' completions 0
 zstyle ':completion:*' glob 1
