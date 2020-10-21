@@ -584,9 +584,9 @@ openvpn(){
 	ls -f /etc/openvpn/*.txt
 	echo
 	
-  read -p "SKRIV FILENS NAVN " 
+  read -p "SKRIV FILENS NAVN " fil_navn </dev/tty
 	
-  fil_stig="/etc/openvpn/${@}"
+  fil_stig="/etc/openvpn/${fil_navn}"
 	echo $@
 	
   [[ -f "$fil_stig" ]] && vpnstart || openvpn

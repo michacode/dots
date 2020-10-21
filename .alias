@@ -4,32 +4,51 @@ echo "Rydder op..."
 rm /tmp/atomic_wallet_checksum.tmp | [[ "$?" == "0" ]] && echo "Færdig."
 }
 
-tjek_manuelle_installationer(){
+manuelle_installationer(){
 
-# Hent Atomic Wallet checksum
+### ATOMIC WALLET ###
+
+# Mappen ikke fundet
 
 [[ ! -d ~/.config/atomic_wallet/ ]] && echo "Opretter mappe til opdatering af Atomic Wallet" &&  mkdir ~/.config/atomic_wallet && echo "Oprettede mappen ~/.config/atomic_wallet"
+
+# Ingen checksum fundet i mappen 
+
+[[ ! -f ~/.config/atomic_wallet/atomic_wallet_checksum ]] && echo "Ingen checksum-fil fundet. Geninstallerer Atomic Wallet..." && echo && opdater_atom
+
+
+# Hent og tjek Atomic Wallet checksum
+
 echo "Henter Atomic Wallet checksum..." && echo
 curl -o /tmp/atomic_wallet_checksum.tmp https://get.atomicwallet.io/download/sha256sum.txt && echo
 
 ny_atom_checksum=$(cat </tmp/atomic_wallet_checksum.tmp | awk '/atomicwallet.AppImage/ {print $1}')
 atom_checksum=$(cat <~/.config/atomic_wallet/atomic_wallet_checksum | awk '/atomicwallet.AppImage/ {print $1}')
 
-[[ ! -f ~/.config/atomic_wallet/atomic_wallet_checksum ]] && echo "Ingen checksum-fil fundet. Geninstallerer Atomic Wallet..." && echo && opdater_atom
+
+# Opdatering fundet
+
 [[ "$ny_atom_checksum" != "$atom_checksum" ]] && echo "Atomic Wallet bør opdateres. Starter opdatering..." && echo && opdater_atom 
+
+# Atomic Wallet er opdateret
+
 [[ "$ny_atom_checksum" == "$atom_checksum" ]] && echo "Den nyeste version af Atomic Wallet findes allerede i systemet." && echo && echo "Rydder op..." && rm /tmp/atomic_wallet_checksum.tmp | [[ "$?" == "0" ]] && echo Færdig.
 
 }
 
 opdater(){
 
-#Opdater Atom
-[[ "$1" == "atom" ]] && tjek_manuelle_installationer
+# Opdater Atom
+
+[[ "$1" == "atom" ]] && manuelle_installationer
 
 # Opdater hele systemet
-[[ -z "$1" ]] && echo "Opdaterering af systemet startes ..." &&  yay -Syu && echo && echo "Opdaterer Atomic Wallet ..." && echo && tjek_manuelle_installationer
 
-[[ "$@" == *"--"* ]] && echo "Opdaterering af systemet startes ..." &&  yay -Syu $@ && echo && echo "Opdaterer Atomic Wallet ..." && tjek_manuelle_installationer
+[[ -z "$1" ]] && stat="system" && echo "Opdaterering af systemet startes ..." &&  yay -Syu $@ && echo
+[[ "$1" == *"--"* ]] && stat="system" && echo "Opdaterering af systemet startes med argumentet \"$1\"..." &&  yay -Syu $@ && echo
+
+[[ "$stat" == "system" ]] && manuelle_installationer
+
 
 }
 
