@@ -54,6 +54,9 @@ echo " [HJEMMEMAPPENS KONFIGURATIONSFILER]"
 echo
 [[ -f ~/.zshenv ]] && sudo cp ~/.zshenv ~/dots/
 [[ -f ~/.zshrc ]] && sudo cp ~/.zshrc ~/dots/
+echo "  [bash/zsh konfigurationer]"
+echo
+[[ -f ~/.profile ]] && cp -rf ~/.profile ~/dots/ && [[ "$?" == "0" ]] && echo "-> .profile kopieret" || echo " X .profile ikke fundet"
 echo
 echo "  [bash konfigurationer]"
 echo

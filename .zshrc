@@ -1,5 +1,5 @@
 source ~/.alias
-
+source ~/.profile
 # The following lines were added by compinstall
 
 zstyle ':cpmpletion:*' COMPLETE_ALIASES
