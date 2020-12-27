@@ -90,15 +90,15 @@ echo " [HJEMMEBRYG]"
 echo
 echo "  [netto-skript]"
 echo
-[[ -f /usr/bin/netto ]] && cp -rf /usr/bin/netto ~/dots/hjemmebryg/netto/ && [[ "$?" == "0" ]] && echo "-> netto-skript kopieret" || echo " X netto-skript ikke fundet"
+[[ -f ~/.local/bin/hb/netto ]] && cp -rf ~/.local/bin/hb/netto ~/dots/hjemmebryg/netto/ && [[ "$?" == "0" ]] && echo "-> netto-skript kopieret" || echo " X netto-skript ikke fundet"
 echo
 echo "  [bat-skript]"
 echo
-[[ -f /usr/bin/bat ]] && cp -rf /usr/bin/bat ~/dots/hjemmebryg/div/ && [[ "$?" == "0" ]] && echo "-> bat-skript kopieret" || echo " X bat-skript ikke fundet" 
+[[ -f ~/.local/bin/hb/bat ]] && cp -rf ~/.local/bin/hb/bat ~/dots/hjemmebryg/div/ && [[ "$?" == "0" ]] && echo "-> bat-skript kopieret" || echo " X bat-skript ikke fundet" 
 echo
 echo "  [rens-skript]"
 echo
-[[ -f /usr/bin/rens ]] && cp -rf /usr/bin/rens ~/dots/hjemmebryg/div/ && [[ "$?" == "0" ]] && echo "-> rens-skript kopieret" || echo " X rens-skript ikke fundet"
+[[ -f ~/.local/bin/hb/rens ]] && cp -rf ~/.local/bin/hb/rens ~/dots/hjemmebryg/div/ && [[ "$?" == "0" ]] && echo "-> rens-skript kopieret" || echo " X rens-skript ikke fundet"
 gitorquit
 exit 0
 }
