@@ -5,10 +5,9 @@ export PATH=/usr/local/lib/nodejs/node-$VERSION-$DISTRO/bin:$PATH
 
 # Go
 GOPATH=/usr/local/go
-#export PATH=$PATH:/usr/local/go/bin
 
 # Wails and Go
-export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:$HOME/BUIDL/go/bin"
 export PATH=$PATH:/usr/local/go/bin
 export GO111MODULE=on
 
