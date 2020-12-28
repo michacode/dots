@@ -99,6 +99,9 @@ echo
 echo "  [rens-skript]"
 echo
 [[ -f ~/.local/bin/hb/rens ]] && cp -rf ~/.local/bin/hb/rens ~/dots/hjemmebryg/div/ && [[ "$?" == "0" ]] && echo "-> rens-skript kopieret" || echo " X rens-skript ikke fundet"
+echo "  [opdaterings-skript]"
+echo
+[[ -f ~/.local/bin/hb/opdat ]] && cp -rf ~/.local/bin/hb/opdat ~/dots/hjemmebryg/div/ && [[ "$?" == "0" ]] && echo "-> opdaterings-skript kopieret" || echo " X opdaterings-skript ikke fundet"
 gitorquit
 exit 0
 }
