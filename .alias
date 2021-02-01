@@ -21,26 +21,26 @@
     #alias o='sh ~/.local/bin/hb/filips/bye' #LUK SYSTEMET NED
     alias q='kill $PPID' #DRÆB TERMINALEN
     #alias x='[[ "$DISPLAY" != *"0" ]] && echo && echo "SKRIVEBORDET STARTES ..." && startx &>/dev/null || echo && echo "SKRIVEBORDET LUKKES ..." && echo && killall xinit &>/dev/null' #START XORG OR QUIT
-    start_x(){
-      tput civis
-      for i in {1..23000}; do
-        [[ "$i" < "20000" ]] && echo -en "\r:)" &>/dev/tty
-        [[ "$i" > "20001" ]] && echo -en "\r:|" &>/dev/tty
-        [[ "$i" == "23000" ]] && break &>/dev/tty && tput cvvis
-      done &>/dev/null
-    startx &>/dev/null
-    }
-    kill_x(){
-      tput civis
-      for i in {1..23000}; do
-        [[ "$i" < "10000" ]] && echo -en "\rafslutter x..." &>/dev/tty
-        [[ "$i" > "20001" ]] && echo -en "\r" &>/dev/tty
-        [[ "$i" == "23000" ]] && break &>/dev/tty
-      done &>/dev/null
-    tput cvvis
-    killall xinit &>/dev/null
-    }
-    alias x='[[ "$DISPLAY" != *"0" ]] && start_x || kill_x' 
+    #start_x(){
+    #  tput civis
+    #  for i in {1..23000}; do
+    #    [[ "$i" < "20000" ]] && echo -en "\r:)" &>/dev/tty
+    #    [[ "$i" > "20001" ]] && echo -en "\r:|" &>/dev/tty
+    #    [[ "$i" == "23000" ]] && break &>/dev/tty && tput cvvis
+    #  done &>/dev/null
+    #startx &>/dev/null
+    #}
+    #kill_x(){
+    #  tput civis
+    #  for i in {1..23000}; do
+    #    [[ "$i" < "10000" ]] && echo -en "\rafslutter x..." &>/dev/tty
+    #    [[ "$i" > "20001" ]] && echo -en "\r" &>/dev/tty
+    #    [[ "$i" == "23000" ]] && break &>/dev/tty
+    #  done &>/dev/null
+    #tput cvvis
+    #killall xinit &>/dev/null
+    #}
+    alias x='[[ "$DISPLAY" != *"0" ]] && sh ~/.local/bin/hb/system_kontrol start_x || sh ~/.local/bin/hb/system_kontrol kill_x' 
     export q
     export x
 

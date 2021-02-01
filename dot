@@ -89,6 +89,10 @@ echo
 echo
 echo " [HJEMMEBRYG]"
 echo
+echo "  [system_kontrol]"
+echo
+[[ -f ~/.local/bin/hb/system_kontrol ]] && cp -rf ~/.local/bin/hb/system_kontrol ~/dots/hjemmebryg/div/ && [[ "$?" == "0" ]] && echo "-> system_kontrol-skript kopieret" || echo " X system_kontrol-skript ikke fundet"
+echo
 echo "  [netto-skript]"
 echo
 [[ -f ~/.local/bin/hb/netto ]] && cp -rf ~/.local/bin/hb/netto ~/dots/hjemmebryg/netto/ && [[ "$?" == "0" ]] && echo "-> netto-skript kopieret" || echo " X netto-skript ikke fundet"
