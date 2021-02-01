@@ -60,6 +60,7 @@ echo
 echo
 echo "  [bash konfigurationer]"
 echo
+[[ -f ~/.alias ]] && cp -rf ~/.alias ~/dots/ && [[ "$?" == "0" ]] && echo "-> .alias kopieret" || echo " X .alias ikke fundet"
 [[ -f ~/.bashrc ]] && cp -rf ~/.bashrc ~/dots/ && [[ "$?" == "0" ]] && echo "-> .bashrc kopieret" || echo " X .bashrc ikke fundet"
 [[ -f ~/.bash_profile ]] && cp -rf ~/.bash_profile ~/dots/ && [[ "$?" == "0" ]] && echo "-> .bash_profile kopieret" || echo " X .bash_profile ikke fundet"
 #[[ -f ~/.alias ]] && cp -rf ~/.alias ~/dots/ && [[ "$?" == "0" ]] && echo "-> .alias kopieret" || echo " X .alias ikke fundet"

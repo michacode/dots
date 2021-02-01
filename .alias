@@ -1,73 +1,140 @@
-opdater_atom(){
-sudo curl -# -o /usr/local/bin/atomicwallet.AppImage https://get.atomicwallet.io/download/atomicwallet.AppImage && chmod a+x /usr/local/bin/atomicwallet.AppImage && sudo cp /tmp/atomic_wallet_checksum.tmp ~/.config/atomic_wallet/atomic_wallet_checksum
-echo "Rydder op..."
-rm /tmp/atomic_wallet_checksum.tmp | [[ "$?" == "0" ]] && echo "Færdig."
-}
 
-manuelle_installationer(){
+#### ALIAS'S ####
+#################
 
-### ATOMIC WALLET ###
+  ### SYSTEM ALIAS'S ###
+  ###################### 
+  ## BUIDL ##
+  ###########
 
-# Mappen ikke fundet
+    export ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true
+  
+  ## ÆSTETISK ##
+  ##############
 
-[[ ! -d ~/.config/atomic_wallet/ ]] && echo "Opretter mappe til opdatering af Atomic Wallet" &&  mkdir ~/.config/atomic_wallet && echo "Oprettede mappen ~/.config/atomic_wallet"
+    alias ls='ls --color=auto'
+    LS_COLORS=$LS_COLORS:'di=1;33:fi=0;37:ex=1;36' ; export LS_COLORS
 
-# Ingen checksum fundet i mappen 
+  ## TERMINALE FUNKTIONER ##
+  ##########################
 
-[[ ! -f ~/.config/atomic_wallet/atomic_wallet_checksum ]] && echo "Ingen checksum-fil fundet. Geninstallerer Atomic Wallet..." && echo && opdater_atom
+    #alias o='sh ~/.local/bin/hb/filips/bye' #LUK SYSTEMET NED
+    alias q='kill $PPID' #DRÆB TERMINALEN
+    #alias x='[[ "$DISPLAY" != *"0" ]] && echo && echo "SKRIVEBORDET STARTES ..." && startx &>/dev/null || echo && echo "SKRIVEBORDET LUKKES ..." && echo && killall xinit &>/dev/null' #START XORG OR QUIT
+    start_x(){
+      tput civis
+      for i in {1..23000}; do
+        [[ "$i" < "20000" ]] && echo -en "\r:)" &>/dev/tty
+        [[ "$i" > "20001" ]] && echo -en "\r:|" &>/dev/tty
+        [[ "$i" == "23000" ]] && break &>/dev/tty && tput cvvis
+      done &>/dev/null
+    startx &>/dev/null
+    }
+    kill_x(){
+      tput civis
+      for i in {1..23000}; do
+        [[ "$i" < "10000" ]] && echo -en "\rafslutter x..." &>/dev/tty
+        [[ "$i" > "20001" ]] && echo -en "\r" &>/dev/tty
+        [[ "$i" == "23000" ]] && break &>/dev/tty
+      done &>/dev/null
+    tput cvvis
+    killall xinit &>/dev/null
+    }
+    alias x='[[ "$DISPLAY" != *"0" ]] && start_x || kill_x' 
+    export q
+    export x
 
+  ## BACKUP OG OPDATERING ##
+  ##########################
+    
+    opdater(){ #OPDATERINGS SKRIPT
+    sh ~/.local/bin/hb/opdat $@
+    }
+    alias opdater=opdater $@
+    alias opd=opdater $@
+    
+    alias dot='sh ~/.local/bin/hb/dot'
+    alias but='sudo timeshift --create'
+    
+    export opdater
+    export opd
+    export but
+    export dot
 
-# Hent og tjek Atomic Wallet checksum
+  ## VEDLIGEHOLDELSE ##
+  #####################
 
-echo "Henter Atomic Wallet checksum..." && echo
-curl -o /tmp/atomic_wallet_checksum.tmp https://get.atomicwallet.io/download/sha256sum.txt && echo
+    alias bat='sh ~/.local/bin/hb/bat'
+    alias rens='sh ~/.local/bin/hb/rens'
 
-ny_atom_checksum=$(cat </tmp/atomic_wallet_checksum.tmp | awk '/atomicwallet.AppImage/ {print $1}')
-atom_checksum=$(cat <~/.config/atomic_wallet/atomic_wallet_checksum | awk '/atomicwallet.AppImage/ {print $1}')
+    export bat
+    export rens
 
+  ## LOKATIONER ##
+  ################
+ 
+    alias appimgdir='cd /usr/local/bin/'
+    
+    export appimgdir
 
-# Opdatering fundet
+    # MONTERINGER #
+    ###############
 
-[[ "$ny_atom_checksum" != "$atom_checksum" ]] && echo "Atomic Wallet bør opdateres. Starter opdatering..." && echo && opdater_atom 
+      win(){ #WINDOWS DREV
+      [[ "$1" == "docs" ]] && ranger /mnt/Windows/Users/Micha/Documents
+      [[ "$1" == "down" ]] && ranger /mnt/Windows/Users/Micha/Downloads
+      [[ "$1" == "" ]] && ranger /mnt/Windows/Users/Micha
+      }
+      alias win=win $@
 
-# Atomic Wallet er opdateret
+      alias umt='sudo umount /run/timeshift/backup'
 
-[[ "$ny_atom_checksum" == "$atom_checksum" ]] && echo "Den nyeste version af Atomic Wallet findes allerede i systemet." && echo && echo "Rydder op..." && rm /tmp/atomic_wallet_checksum.tmp | [[ "$?" == "0" ]] && echo Færdig.
+      export umt
+      export win
+  
+  
+  ### APPS, ETC. ###
+  ##################
 
-}
+    ## WALLETS ##
+    #############
 
-opdater(){
+    alias aw='/usr/local/bin/atomicwallet.AppImage &>/dev/null' #ATOMIC WALLET
+    alias hw='cd ~/BUIDL/hathor-wallet && npm run electron' #HATHOR WALLET
+    alias lw='ledger-live' #LEDGER LIVE
+    alias mw='~/BUIDL/go/bin/molly_wallet/build/mollywallet &>/dev/null' #MOLLY WALLET (CONSTELLATION)
 
-# Opdater Atom
+    export aw
+    export hw
+    export lw
+    export mw
 
-[[ "$1" == "atom" ]] && manuelle_installationer
+    ## SIKKERHED ##
+    ###############
 
-# Opdater hele systemet
+    alias bw='bitwarden-desktop &>/dev/null'
 
-[[ -z "$1" ]] && stat="system" && echo "Opdaterering af systemet startes ..." &&  yay -Syu $@ && echo
-[[ "$1" == *"--"* ]] && stat="system" && echo "Opdaterering af systemet startes med argumentet \"$1\"..." &&  yay -Syu $@ && echo
+    export bw
 
-[[ "$stat" == "system" ]] && manuelle_installationer
+    ## BROWSERE ##
+    ##############
 
+    alias bb='brave &>/dev/null'
 
-}
+    export bb
 
-win(){
-[[ "$1" == "docs" ]] && ranger /mnt/Windows/Users/Micha/Documents
-[[ "$1" == "down" ]] && ranger /mnt/Windows/Users/Micha/Downloads
-[[ "$1" == "" ]] && ranger /mnt/Windows/Users/Micha
-}
+    ## KOMMUNIKATION ##
+    ###################
 
-alias atom='/usr/local/bin/atomicwallet.AppImage &>/dev/null'
-alias opdater=opdater $@
-alias opd=opdater $@
-alias bw='bitwarden-desktop &>/dev/null'
-alias bb='brave &>/dev/null'
-alias win=win $@
-export atom
-export opdater
-export opd
-export bw
+    alias tg='telegram-desktop'
 
-alias ls='ls --color=auto'
-LS_COLORS=$LS_COLORS:'di=1;33:fi=0;37:ex=1;36' ; export LS_COLORS
+    export tg
+    
+    ## NETVÆRK ##
+    #############
+
+    alias netto='sh ~/.local/bin/hb/netto'
+
+    export netto
+  
+  
