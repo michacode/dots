@@ -1,28 +1,29 @@
 #!/bin/sh
 
      start_x(){
+       clear
+       tput cup 0
        tput civis
        for i in {1..23000}; do
-         [[ "$i" < "20000" ]] && echo -en "\r:)" &>/dev/tty
-         [[ "$i" > "20001" ]] && echo -en "\r:|" &>/dev/tty
-         [[ "$i" == "23000" ]] && break &>/dev/tty && tput cvvis
+         [[ "$i" < "20000" ]] && echo -en "\r:)                    " &>/dev/tty
+         [[ "$i" > "20001" ]] && echo -en "\r:|                    " &>/dev/tty
+         [[ "$i" == "23000" ]] && break
        done &>/dev/null
-     startx &>/dev/null
      }
 
      kill_x(){
        tput civis
        for i in {1..23000}; do
          [[ "$i" < "10000" ]] && echo -en "\rafslutter x..." &>/dev/tty
-         [[ "$i" > "20001" ]] && echo -en "\r" &>/dev/tty
-         [[ "$i" == "23000" ]] && break &>/dev/tty
+         [[ "$i" > "10001" ]] && echo -en "\r" &>/dev/tty
+         [[ "$i" == "23000" ]] && break
        done &>/dev/null
+       killall xinit &>/dev/null
      tput cvvis
-     killall xinit &>/dev/null
      }
 
 modtaget_argument(){
-  [[ "$1" == "start_x" ]] && start_x
+  [[ "$1" == "start_x" ]] && start_x && startx &>/dev/null
   [[ "$1" == "kill_x" ]] && kill_x
 }
 
