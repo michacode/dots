@@ -5,17 +5,19 @@
        tput cup 0
        tput civis
        for i in {1..23000}; do
-         [[ "$i" < "20000" ]] && echo -en "\r:)                          " &>/dev/tty
-         [[ "$i" > "20001" ]] && echo -en "\r:|                          " &>/dev/tty
+         [[ "$i" < "20000" ]] && echo -ne "\r\e[36m:)                          " &>/dev/tty
+         [[ "$i" > "20001" ]] && echo -ne "\r\e[35m:|                          " &>/dev/tty
          [[ "$i" == "23000" ]] && break
        done &>/dev/null
+       echo -e "\e[37m"
      }
 
      kill_x(){
+       clear
        tput civis
        for i in {1..23000}; do
-         [[ "$i" < "10000" ]] && echo -en "\rafslutter x..." &>/dev/tty
-         [[ "$i" > "10001" ]] && echo -en "\r" &>/dev/tty
+         [[ "$i" < "10000" ]] && echo -ne "\r\e[35mAfslutter x ..." &>/dev/tty
+         [[ "$i" > "10001" ]] && echo -ne "\r" &>/dev/tty
          [[ "$i" == "23000" ]] && break
        done &>/dev/null
        killall xinit &>/dev/null
