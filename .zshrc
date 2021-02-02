@@ -28,3 +28,7 @@ setopt autocd extendedglob nomatch
 unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install
+
+# Micha
+
+[[ "$DISPLAY" != *"0" ]] && ~/.local/bin/hb/velkommen.sh

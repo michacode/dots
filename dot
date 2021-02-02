@@ -92,6 +92,7 @@ echo
 echo "  [system_kontrol]"
 echo
 [[ -f ~/.local/bin/hb/system_kontrol ]] && cp -rf ~/.local/bin/hb/system_kontrol ~/dots/hjemmebryg/div/ && [[ "$?" == "0" ]] && echo "-> system_kontrol-skript kopieret" || echo " X system_kontrol-skript ikke fundet"
+[[ -f ~/.local/bin/hb/velkommen.sh ]] && cp -rf ~/.local/bin/hb/velkommen.sh ~/dots/hjemmebryg/div/ && [[ "$?" == "0" ]] && echo "-> velkommen-skript kopieret" || echo " X velkommen-skript ikke fundet"
 echo
 echo "  [netto-skript]"
 echo
