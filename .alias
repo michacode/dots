@@ -20,29 +20,8 @@
 
     #alias o='sh ~/.local/bin/hb/filips/bye' #LUK SYSTEMET NED
     alias q='kill $PPID' #DRÆB TERMINALEN
-    #alias x='[[ "$DISPLAY" != *"0" ]] && echo && echo "SKRIVEBORDET STARTES ..." && startx &>/dev/null || echo && echo "SKRIVEBORDET LUKKES ..." && echo && killall xinit &>/dev/null' #START XORG OR QUIT
-    #start_x(){
-    #  tput civis
-    #  for i in {1..23000}; do
-    #    [[ "$i" < "20000" ]] && echo -en "\r:)" &>/dev/tty
-    #    [[ "$i" > "20001" ]] && echo -en "\r:|" &>/dev/tty
-    #    [[ "$i" == "23000" ]] && break &>/dev/tty && tput cvvis
-    #  done &>/dev/null
-    #startx &>/dev/null
-    #}
-    #kill_x(){
-    #  tput civis
-    #  for i in {1..23000}; do
-    #    [[ "$i" < "10000" ]] && echo -en "\rafslutter x..." &>/dev/tty
-    #    [[ "$i" > "20001" ]] && echo -en "\r" &>/dev/tty
-    #    [[ "$i" == "23000" ]] && break &>/dev/tty
-    #  done &>/dev/null
-    #tput cvvis
-    #killall xinit &>/dev/null
-    #}
     alias x='[[ "$DISPLAY" != *"0" ]] && sh ~/.local/bin/hb/system_kontrol start_x || sh ~/.local/bin/hb/system_kontrol kill_x' 
-    export q
-    export x
+    export q ; export x
 
   ## BACKUP OG OPDATERING ##
   ##########################
@@ -52,14 +31,10 @@
     }
     alias opdater=opdater $@
     alias opd=opdater $@
-    
     alias dot='sh ~/.local/bin/hb/dot'
-    alias but='sudo timeshift --create'
+    alias tshft='sudo timeshift --create'
     
-    export opdater
-    export opd
-    export but
-    export dot
+    export opdater ; export opd ; export but ; export dot
 
   ## VEDLIGEHOLDELSE ##
   #####################
@@ -67,8 +42,7 @@
     alias bat='sh ~/.local/bin/hb/bat'
     alias rens='sh ~/.local/bin/hb/rens'
 
-    export bat
-    export rens
+    export bat ; export rens
 
   ## LOKATIONER ##
   ################
@@ -85,13 +59,18 @@
       [[ "$1" == "down" ]] && ranger /mnt/Windows/Users/Micha/Downloads
       [[ "$1" == "" ]] && ranger /mnt/Windows/Users/Micha
       }
+      serv(){ 
+      #RPI SERVER
+      sh ~/.local/bin/hb/piserv $@ 
+      }
+
       alias win=win $@
+      alias utshft='sudo umount /run/timeshift/backup'
 
-      alias umt='sudo umount /run/timeshift/backup'
-
-      export umt
-      export win
+      alias piserv=serv $@
+      export umt ; export win ; export piserv
   
+      
   
   ### APPS, ETC. ###
   ##################
@@ -100,26 +79,22 @@
     #############
 
     alias aw='/usr/local/bin/atomicwallet.AppImage &>/dev/null' #ATOMIC WALLET
-    alias hw='cd ~/BUIDL/hathor-wallet && npm run electron' #HATHOR WALLET
-    alias lw='ledger-live' #LEDGER LIVE
+    alias lw='ledger-live-desktop' #LEDGER LIVE
     alias mw='~/BUIDL/go/bin/molly_wallet/build/mollywallet &>/dev/null' #MOLLY WALLET (CONSTELLATION)
 
-    export aw
-    export hw
-    export lw
-    export mw
+    export aw ; export lw ; export mw
 
     ## SIKKERHED ##
     ###############
 
-    alias bw='bitwarden-desktop &>/dev/null'
+    alias bw='bitwarden-desktop'
 
     export bw
 
     ## BROWSERE ##
     ##############
 
-    alias bb='brave &>/dev/null'
+    alias bb='brave'
 
     export bb
 

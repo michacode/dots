@@ -1,5 +1,7 @@
 source ~/.alias
 source ~/.profile
+#source /usr/local/bin/virtualenvwrapper.sh
+
 # The following lines were added by compinstall
 
 zstyle ':cpmpletion:*' COMPLETE_ALIASES
