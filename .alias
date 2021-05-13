@@ -22,6 +22,12 @@
     alias q='kill $PPID' #DRÆB TERMINALEN
     alias x='[[ "$DISPLAY" != *"0" ]] && sh ~/.local/bin/hb/system_kontrol start_x || sh ~/.local/bin/hb/system_kontrol kill_x' 
     export q ; export x
+    
+    ## (DE)COMPRESS ##
+    ##################
+
+    alias pak='sh ~/.local/bin/hb/udpak $@'
+    export pak
 
   ## BACKUP OG OPDATERING ##
   ##########################

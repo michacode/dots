@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# UDPAK .ZIP .7Z .TAR*
+#
+
+zip(){
+unzip $1
+}
+
+sevenzip(){
+7z e $1
+}
+
+tar(){
+tar -xvzf $1
+}
+
+fil_type(){
+[[ "$1" == *".tar"* ]] && tar $@
+[[ "$1" == *".7z" ]] && sevenzip $@
+[[ "$1" == *".zip" ]] && zip $@
+}
+
+
+fil_type $@
